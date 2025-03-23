@@ -2,16 +2,16 @@ import { Book, ArrowUp } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
-  issueNumber: string;
-  pageNumber: string;
+  // issueNumber: string;
+  // pageNumber: string;
   languages: string[];
   imageSrc: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
-  issueNumber,
-  pageNumber,
+  // issueNumber,
+  // pageNumber,
   languages,
   imageSrc,
 }) => {
@@ -103,8 +103,6 @@ export const Projects = () => {
           <ProjectCard
             key={project.id}
             title={project.title}
-            issueNumber={project.issueNumber}
-            pageNumber={project.pageNumber}
             languages={project.languages}
             imageSrc={project.imageSrc}
           />

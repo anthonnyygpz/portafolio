@@ -41,7 +41,7 @@ export const TitleMain = () => {
               <img
                 src="../../public/MacBook Air.jpg"
                 alt="Profile"
-                className="object-cover my--7 w-[200px] md:w-[300px] lg:w-[400px] "
+                className="object-cover my-7 w-[200px] md:w-[300px] lg:w-[400px] "
               />
             </div>
           </div>

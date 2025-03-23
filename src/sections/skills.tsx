@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Atom,
-  ChevronRight,
   Code,
   Database,
   FileJson,
@@ -233,15 +232,13 @@ export const Skills = () => {
                   </span>
                 </div>
 
-                {/* {hoveredSkill === skill.name && ( */}
-                {/*   <motion.div */}
-                {/*     initial={{ opacity: 0 }} */}
-                {/*     animate={{ opacity: 1 }} */}
-                {/*     className="absolute bottom-4 right-4" */}
-                {/*   > */}
-                {/*     <ChevronRight className="h-5 w-5 text-primary" /> */}
-                {/*   </motion.div> */}
-                {/* )} */}
+                {hoveredSkill === skill.name && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="absolute bottom-4 right-4"
+                  ></motion.div>
+                )}
               </div>
             </motion.div>
           ))}
