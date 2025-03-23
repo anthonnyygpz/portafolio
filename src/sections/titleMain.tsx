@@ -1,7 +1,12 @@
 import { Button } from "../components/button";
 import { ArrowRight } from "lucide-react";
+import useUser from "../hooks/useUser";
 
 export const TitleMain = () => {
+  const { avatar_url, loading } = useUser();
+
+  if (loading) return <div>Cargando...</div>;
+
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
       <div className="2xl:justify-center 2xl:p-2 px-4 md:px-6">
@@ -39,9 +44,9 @@ export const TitleMain = () => {
           <div className="flex justify-center">
             <div className="relative aspect-square overflow-hidden rounded-full border-8 border-muted bg-muted md:w-[300px] lg:w-[400px]">
               <img
-                src="../../public/MacBook Air.jpg"
+                src={avatar_url}
                 alt="Profile"
-                className="object-cover my-7 w-[200px] md:w-[300px] lg:w-[400px] "
+                className="object-cover  w-[200px] md:w-[300px] lg:w-[400px] "
               />
             </div>
           </div>
