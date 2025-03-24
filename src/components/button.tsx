@@ -6,34 +6,44 @@ interface ButtonProps {
   className?: string;
   href?: string;
   onClick?: () => void;
+  title?: string;
+  target?: string;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  download?: string;
 }
 export const Button: React.FC<ButtonProps> = ({
   children,
   href,
   className,
   onClick,
+  target,
+  title,
+  onMouseLeave,
+  onMouseEnter,
+  download,
 }) => {
   if (href) {
     return (
       <Link
+        download={download}
         to={href}
-        // className={`py-1 px-2 justify-center flex items-center ${className}`}
+        className={`justify-center flex items-center ${className}`}
         onClick={onClick}
+        target={target}
       >
-        <div
-          className={`py-1 px-2 justify-center flex items-center ${className}`}
-        >
-          {children}
-        </div>
+        {children}
       </Link>
     );
   } else {
     return (
       <button
-        className={`${className}`}
-        // className={`py-1 px-2  justify-center flex items-center `}
+        className={`justify-center flex items-center ${className}`}
         type="button"
         onClick={onClick}
+        title={title}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
       >
         {children}
       </button>
