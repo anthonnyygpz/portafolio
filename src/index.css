@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@tailwind utilities;
+
 @theme {
   --color-deep-seaweed: #0b1714;
   --color-deep: #172526;
@@ -22,4 +24,16 @@
   --color-primary-darker: var(--color-deep-seaweed);
 
   --color-secondary: var(--oatmeal);
+}
+
+.btn-brown-outline {
+  @apply hover:bg-brown-500 active:bg-brown-600;
+}
+
+.btn-brown {
+  @apply bg-brown-500 hover:bg-brown-600 active:bg-brown-700;
+}
+
+.border-brown {
+  @apply border border-brown-500;
 }
