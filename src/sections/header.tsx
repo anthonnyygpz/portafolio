@@ -23,11 +23,7 @@ export const Header = () => {
           </h1>
 
           {/* Boton hamburguesa para movil */}
-          <button
-            className="md:hidden p-2 text-white"
-            onClick={toggleMenu}
-            aria-label="toggle Menu"
-          >
+          <button className="md:hidden p-2 text-white" onClick={toggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
@@ -136,25 +132,49 @@ export const Header = () => {
 
         {/* Menu movil despegable */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 transition-all duration-300 ease-in-out text-white">
-            <ul className="">
-              <li className="hover:bg-brown-600 active:bg-brown-700 transition rounded">
-                <Button href="#main" onClick={() => setIsMenuOpen(false)}>
+          <nav className="md:hidden mt-4 transition-all duration-300 ease-in-out">
+            <ul className="flex flex-col gap-2">
+              <li>
+                <Button
+                  className="btn-brown-outline w-full transition text-white hover:text-black py-1 rounded "
+                  onClick={() => {
+                    scrollSection("main");
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Inicio
                 </Button>
               </li>
-              <li className=" hover:bg-brown-600 active:bg-brown-700 transition rounded">
-                <Button href="#skill" onClick={() => setIsMenuOpen(false)}>
+              <li>
+                <Button
+                  className="btn-brown-outline w-full transition text-white hover:text-black py-1 rounded "
+                  onClick={() => {
+                    scrollSection("skills");
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Habilidades
                 </Button>
               </li>
-              <li className=" hover:bg-brown-600 active:bg-brown-700 transition rounded">
-                <Button href="#project" onClick={() => setIsMenuOpen(false)}>
+              <li>
+                <Button
+                  className="btn-brown-outline w-full transition text-white hover:text-black py-1 rounded "
+                  onClick={() => {
+                    scrollSection("projects");
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Proyectos
                 </Button>
               </li>
-              <li className="bg-brown-500 hover:bg-brown-600 active:bg-brown-700 transition text-black rounded ">
-                <Button href="#contact" onClick={() => setIsMenuOpen(false)}>
+              <li>
+                <Button
+                  className="btn-brown w-full transition text-black hover:text-white py-1 rounded "
+                  onClick={() => {
+                    scrollSection("contact-me");
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Contactame
                 </Button>
               </li>
