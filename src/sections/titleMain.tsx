@@ -1,14 +1,16 @@
 import { Button } from "../components/button";
 import { ArrowRight } from "lucide-react";
 import useUser from "../hooks/useUser";
+import useHeader from "../hooks/useHeader";
 
 export const TitleMain = () => {
   const { avatar_url, loading } = useUser();
+  const { scrollSection } = useHeader();
 
   if (loading) return <div>Cargando...</div>;
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+    <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48" id="main">
       <div className="2xl:justify-center 2xl:p-2 px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <div className="flex flex-col justify-center space-y-4">
@@ -24,7 +26,7 @@ export const TitleMain = () => {
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <div>
                 <Button
-                  href="#projects"
+                  onClick={() => scrollSection("projects")}
                   className="bg-brown-500 hover:bg-brown-600 active:bg-brown-700 inline-flex h-10 items-center justify-center rounded-md px-8 text-sm font-medium  shadow transition-colors  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 >
                   Ver Proyectos
@@ -33,7 +35,7 @@ export const TitleMain = () => {
               </div>
               <div>
                 <Button
-                  href="#contact"
+                  onClick={() => scrollSection("contact-me")}
                   className="inline-flex h-10 items-center justify-center rounded-md border border-input text-white hover:text-black hover:bg-white px-8 text-sm font-medium shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 >
                   Contáctame
