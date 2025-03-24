@@ -3,7 +3,17 @@ import { Menu, X } from "lucide-react";
 import useHeader from "../hooks/useHeader";
 
 export const Header = () => {
-  const { toggleMenu, isMenuOpen, setIsMenuOpen } = useHeader();
+  const {
+    toggleMenu,
+    isMenuOpen,
+    setIsMenuOpen,
+    scrollSection,
+    gmailCopyButton,
+    tooltipText,
+    showTooltip,
+    setShowTooltip,
+  } = useHeader();
+
   return (
     <header className="p-2 md:p-4 bg-black/10 backdrop-blur-sm fixed w-full top-0 z-50">
       <div className="max-w-6xl mx-auto">
@@ -26,32 +36,40 @@ export const Header = () => {
             <ul className="flex gap-1">
               <li>
                 <Button
-                  className="hover:bg-brown-500 active:bg-brown-600 transition rounded"
-                  href="#main"
+                  className="btn-brown-outline py-1 px-2 transition rounded"
+                  onClick={() => scrollSection("main")}
                 >
                   Inicio
                 </Button>
               </li>
               <li>
                 <Button
-                  className="hover:bg-brown-500 active:bg-brown-600 transition rounded"
-                  href="#skill"
+                  className="btn-brown-outline py-1 px-2 transition rounded"
+                  onClick={() => scrollSection("about-me")}
+                >
+                  Sobre mi
+                </Button>
+              </li>
+              <li>
+                <Button
+                  className="btn-brown-outline py-1 px-2 transition rounded"
+                  onClick={() => scrollSection("skills")}
                 >
                   Habilidades
                 </Button>
               </li>
               <li>
                 <Button
-                  className="hover:bg-brown-500 active:bg-brown-600 transition rounded"
-                  href="#project"
+                  className="btn-brown-outline py-1 px-2 transition rounded"
+                  onClick={() => scrollSection("projects")}
                 >
                   Proyectos
                 </Button>
               </li>
               <li>
                 <Button
-                  className="bg-brown-400 hover:bg-brown-500 active:bg-brown-600 transition text-black rounded "
-                  href="#contact"
+                  className="btn-brown py-1 px-2 transition text-black rounded "
+                  onClick={() => scrollSection("contact-me")}
                 >
                   Contactame
                 </Button>
@@ -59,20 +77,35 @@ export const Header = () => {
 
               <li>
                 {/* gmail */}
-                <a href="#" title="Copea el correo anthonyygpz@gmail.com">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="w-8 h-8 fill-white "
-                    xmlns="http://www.w3.org/2000/svg"
+                <div className="relative inline-block">
+                  <Button
+                    onClick={gmailCopyButton}
+                    onMouseEnter={() => setShowTooltip(true)}
+                    onMouseLeave={() => setShowTooltip(false)}
                   >
-                    <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6ZM20 6L12 11L4 6H20ZM20 18H4V8L12 13L20 8V18Z" />
-                  </svg>
-                </a>
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-8 h-8 fill-white "
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6ZM20 6L12 11L4 6H20ZM20 18H4V8L12 13L20 8V18Z" />
+                    </svg>
+                  </Button>
+                  {showTooltip && (
+                    <div className="absolute top-full left-18 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded shadow-lg whitespace-nowrap">
+                      {tooltipText}
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+                    </div>
+                  )}
+                </div>
               </li>
 
               <li>
                 {/* linkedin */}
-                <a href="https://www.linkedin.com/" target="_blank">
+                <Button
+                  href="http://www.linkedin.com/in/antonio-gallegos-palafox-848288296"
+                  target="_blank"
+                >
                   <svg
                     viewBox="0 0 24 24"
                     className="w-8 h-8 fill-white"
@@ -80,11 +113,11 @@ export const Header = () => {
                   >
                     <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM9 17H6.5V10H9V17ZM7.7 8.7C6.9 8.7 6.3 8.1 6.3 7.3C6.3 6.5 6.9 5.9 7.7 5.9C8.5 5.9 9.1 6.5 9.1 7.3C9.1 8.1 8.5 8.7 7.7 8.7ZM18 17H15.5V13.5C15.5 12.7 14.8 12 14 12C13.2 12 12.5 12.7 12.5 13.5V17H10V10H12.5V11C12.8 10.4 13.8 10 14.5 10C16.4 10 18 11.6 18 13.5V17Z" />
                   </svg>
-                </a>
+                </Button>
               </li>
               <li>
                 {/* github */}
-                <a href="https://github.com/anthonnyygpz" target="_blank">
+                <Button href="https://github.com/anthonnyygpz" target="_blank">
                   <svg
                     viewBox="0 0 24 24"
                     className="w-8 h-8 fill-white"
@@ -95,7 +128,7 @@ export const Header = () => {
                       fill="#e6ebec"
                     />
                   </svg>
-                </a>
+                </Button>
               </li>
             </ul>
           </nav>
