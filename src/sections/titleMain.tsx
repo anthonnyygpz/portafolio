@@ -19,7 +19,7 @@ export const TitleMain = () => {
                 Hola, soy <span>Vicente Antonio Gallegos Palafox</span>
               </h1>
               <p className="max-w-[600px] text-stone-500 text-muted-foreground md:text-xl">
-                Desarrollador Web full stack especializado en crear apliaciones
+                Desarrollador Web full stack especializado en crear aplicaciones
                 completas, dominando tanto frontend como bakcend.
               </p>
             </div>
