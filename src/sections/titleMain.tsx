@@ -27,7 +27,7 @@ export const TitleMain = () => {
               <div>
                 <Button
                   onClick={() => scrollSection("projects")}
-                  className="bg-brown-500 hover:bg-brown-600 active:bg-brown-700 inline-flex h-10 items-center justify-center rounded-md px-8 text-sm font-medium  shadow transition-colors  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                  className="btn-brown inline-flex h-10 items-center justify-center rounded-md px-8 text-sm font-medium  shadow transition-colors  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 >
                   Ver Proyectos
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -36,7 +36,7 @@ export const TitleMain = () => {
               <div>
                 <Button
                   onClick={() => scrollSection("contact-me")}
-                  className="inline-flex h-10 items-center justify-center rounded-md border border-input text-white hover:text-black hover:bg-white px-8 text-sm font-medium shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                  className="btn-brown-outline inline-flex h-10 items-center justify-center rounded-md border-brown text-white hover:text-black hover:bg-white px-8 text-sm font-medium shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 >
                   Contáctame
                 </Button>
