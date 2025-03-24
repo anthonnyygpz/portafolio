@@ -63,7 +63,7 @@ export const Contact = () => {
             <div className="mt-8">
               <a
                 download="Antonio-Gallegos-CV.pdf"
-                href="/MacBook Air.jpg"
+                href="/antonio-gallegos-full-stack.pdf"
                 className="justify-center flex items-center w-full btn-brown rounded p-2 gap-3"
               >
                 <Download />
